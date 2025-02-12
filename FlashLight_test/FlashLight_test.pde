@@ -1,8 +1,13 @@
 boolean wPressed, sPressed, aPressed, dPressed;
 boolean upPressed, downPressed, leftPressed, rightPressed;
 
+PGraphics darkness, maskLayer;
+
 Player player1;
 Player player2;
+
+Flashlight flashlight1;
+Flashlight flashlight2;
 
 
 void setup() {
@@ -10,27 +15,44 @@ void setup() {
 
   size(500, 500);
   background(180);
+
+  darkness = createGraphics(width, height);
+  maskLayer = createGraphics(width, height);
   
-  player1 = new Player(50,50,5,10);
-  player2 = new Player(100,100,3,10);
+  flashlight1 = new Flashlight(200);
+   flashlight2 = new Flashlight(200);
+
+  player1 = new Player(50, 50, 5, 10);
+  player2 = new Player(100, 100, 3, 10);
 }
 
 void draw() {
-  background(180);
-  fill(100,350,200);
-  rect(200,100,200,40);
-  fill(100,30,200);
-  rect(300,40,100,60);
 
-  
+
+  background(180);
+  fill(100, 350, 200);
+  rect(200, 100, 200, 40);
+  fill(100, 30, 200);
+  rect(300, 40, 100, 60);
+
+
   player1.display();
   player1.moveWASD();
-  
-  player1.view();
-  
+
+  flashlight1.light(player1.xpos,player1.ypos);
+
+
+
   player2.display();
   player2.moveARROW();
-  player2.view();
+  
+    //flashlight2.light(player2.xpos,player2.ypos);
+    
+
+
+  // flashlight(player2.xpos,player2.ypos);
+  darkness.mask(maskLayer);
+  image(darkness, 0, 0);
 }
 
 

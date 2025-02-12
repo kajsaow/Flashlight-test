@@ -53,23 +53,5 @@ class Player {
 
     popMatrix();
   }
-  void view() {
-    noStroke();
 
-    fill(0, 200);
-   
-    rectMode(CORNER);
-    rect(0, 0, width, height);
-    rectMode(CENTER);
-
-    pushMatrix();
-    translate(xpos, ypos);
-
-    blendMode(SCREEN  );
-    fill(200, 200);
-    ellipse(0, 0, 200, 200);
-
-    blendMode(BLEND);
-    popMatrix();
-  }
 }
