@@ -43,6 +43,7 @@ class Player {
     if (rightPressed) xpos += speed * moveFactor;
   }
 
+
   void display() {
     pushMatrix();
     translate(xpos, ypos);
@@ -53,5 +54,4 @@ class Player {
 
     popMatrix();
   }
-
 }

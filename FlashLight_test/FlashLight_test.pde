@@ -6,8 +6,8 @@ PGraphics darkness, maskLayer;
 Player player1;
 Player player2;
 
-Flashlight flashlight1;
-Flashlight flashlight2;
+
+Flashlight flashlight;
 
 
 void setup() {
@@ -18,9 +18,9 @@ void setup() {
 
   darkness = createGraphics(width, height);
   maskLayer = createGraphics(width, height);
-  
-  flashlight1 = new Flashlight(200);
-   flashlight2 = new Flashlight(200);
+
+  flashlight = new Flashlight(200);
+
 
   player1 = new Player(50, 50, 5, 10);
   player2 = new Player(100, 100, 3, 10);
@@ -39,20 +39,14 @@ void draw() {
   player1.display();
   player1.moveWASD();
 
-  flashlight1.light(player1.xpos,player1.ypos);
-
-
 
   player2.display();
   player2.moveARROW();
-  
-    //flashlight2.light(player2.xpos,player2.ypos);
-    
 
-
-  // flashlight(player2.xpos,player2.ypos);
-  darkness.mask(maskLayer);
-  image(darkness, 0, 0);
+  flashlight.light(player1.xpos,player1.ypos);
+  flashlight.light(player2.xpos,player2.ypos);
+  //flashlight1.addLight(player1.xpos, player1.ypos);
+  //flashlight1.addLight(player2.xpos, player2.ypos);
 }
 
 
